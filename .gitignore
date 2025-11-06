@@ -31,7 +31,6 @@ audiobook_output/
 private_examples/
 
 # custom
-scripts/
 *.onnx
 *.onnx.json
 

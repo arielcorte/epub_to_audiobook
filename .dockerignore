@@ -29,8 +29,6 @@ LICENSE
 .vscode
 docker-compose.example.yml
 examples/
-audiobook_output/
-private_examples/
 tests
 logs/
 venv/

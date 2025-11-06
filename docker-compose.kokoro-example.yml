@@ -38,17 +38,15 @@ services:
     environment:
       - OPENAI_BASE_URL=http://kokoro:8880/v1
       - OPENAI_API_KEY=nope
-      - PATH_TO_EPUB_FILE=${PATH_TO_EPUB_FILE}
-      - OUTPUT_DIR=${OUTPUT_DIR:-audiobook_output}
-      - VOICE_NAME=${VOICE_NAME:-af_bella}
     volumes:
       - ./:/app
-      - ${PATH_TO_EPUB_FILE}:/epub_src 
-    #command: tail /dev/null # Uncomment this line to keep the container running, and run via connecting to it with `docker exec -it epub_to_audiobook /bin/bash`
+      # - ${PATH_TO_EPUB_FILE}:/app/epub_src.epub
+      # - ${OUTPUT_DIR}:/app/output_dir
+    # command: tail /dev/null # Uncomment this line to keep the container running, and run via connecting to it with `docker exec -it epub_to_audiobook /bin/bash`
     command: >
       python main.py
-      "${PATH_TO_EPUB_FILE}"
-      "${OUTPUT_DIR}"
+      /app/private_examples/'${EPUB_FILE}'
+      /app/audiobook_output/
       --tts openai
       --no_prompt
       --model_name tts-1
