@@ -562,6 +562,16 @@ python3 main.py "path/to/book.epub" "path/to/output/folder" --tts piper --model_
 
 ### Examples using Kokoro TTS
 
+---
+
+Place your epub file on private_examples.
+Edit `scripts/convert_book.sh`. Set `EPUB_FILE=<name_of_your_file.epub>`.
+Run `./scripts/convert_book.sh` from the root directory.
+
+The `mp3` files will be stored in `audiobook_output`
+
+---
+
 The documented usage of Kokoro TTS with this script uses a docker image with endpoints that are OpenAI compatible. However, since it's a "self-hosted" service, you won't need to get an actual key. This requires docker, so follow the docker installation and setup instructions above in the Piper section if you don't have docker on your machine already.
 
 To run, in one terminal tab, run either
